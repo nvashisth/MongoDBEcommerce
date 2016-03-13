@@ -21,7 +21,7 @@ import com.ecommerce.repository.CustomerRepo;
 @Service
 public class CustomerService {
 
-	/*@Autowired
+	@Autowired
 	private CustomerRepo customerRepository;
 	
 	public void createCustomer(Customer customer) {
@@ -42,5 +42,5 @@ public class CustomerService {
 	
 	public void deleteCustomer(String customerID) {
 		customerRepository.delete(customerID);
-	}*/
+	}
 }

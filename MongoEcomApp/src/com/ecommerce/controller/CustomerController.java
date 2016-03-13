@@ -57,10 +57,10 @@ public class CustomerController {
 	 * Returns the list of all customers
 	 * @return List<Customer>
 	 */
-	/*@RequestMapping(value = "allCustomer", method = RequestMethod.GET)
+	@RequestMapping(value = "allCustomer", method = RequestMethod.GET)
 	public List<Customer> getAll() {
 		return customerService.getAllCustomers();
-	}*/
+	}
 	
 	/**
 	 * Returns the name of customer
