@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/data/mongo
+          http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <!-- Configure the Mongo Server -->
+    <!-- <mongo:mongo id="mongo" host="localhost" port="27017"/> -->
+    
+    <!-- Connection to MongoDB server -->
+ <mongo:db-factory id="mongoDbFactory" host="localhost" port="27017" dbname="ecommerce" />
+ <mongo:mapping-converter id="converter" db-factory-ref="mongoDbFactory" />
+    
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    <constructor-arg ref="mongoDbFactory"/>
+    <constructor-arg name="databaseName" value="ecommerce"/>
+  </bean>
+  <bean id = "customerRepo" class = "com.ecommerce.repository.CustomerRepo" />
+  <bean id = "address_billingRepo" class = "com.ecommerce.repository.Address_BillingRepo" />
+  <bean id = "card_detailsRepo" class = "com.ecommerce.repository.Card_DetailsRepo" />
+  <bean id = "address_residentRepo" class = "com.ecommerce.repository.Address_ResidentRepo" />
+    
+    <mongo:repositories base-package="com.ecommerce.repository"></mongo:repositories>
+    
+    <!-- Define MongoDB GridFS Template -->
+ <bean id="gridTemplate" class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+  <constructor-arg ref="mongoDbFactory" />
+  <constructor-arg ref="converter" />
+ </bean>
+ 
+</beans>
