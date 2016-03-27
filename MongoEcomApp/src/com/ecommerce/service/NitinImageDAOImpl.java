@@ -12,7 +12,7 @@ import com.ecommerce.repository.NitinImageDAO;
 import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSDBFile;
 
-public class NitinImageDAOImpl implements NitinImageDAO {
+public class NitinImageDAOImpl{}/* implements NitinImageDAO {
 
 	@Autowired
 	GridFsTemplate gridFsTemplate;
@@ -49,4 +49,4 @@ public class NitinImageDAOImpl implements NitinImageDAO {
 	public List<GridFSDBFile> findAll() {
 		return this.gridFsTemplate.find(null);
 	}
-}
+}*/

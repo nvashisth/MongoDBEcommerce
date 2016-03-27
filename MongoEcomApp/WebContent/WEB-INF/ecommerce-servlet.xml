@@ -30,6 +30,8 @@
 <context:component-scan base-package="com.ecommerce.service" />
 <context:component-scan base-package="com.ecommerce.controller" />   
 <context:component-scan base-package="com.ecommerce.repository" />
+<context:component-scan base-package="com.ecommerce.webservices_api.customer.api.service"/>
+<context:component-scan base-package="com.ecommerce.webservices.customer.service"/>
 
   
 </beans>

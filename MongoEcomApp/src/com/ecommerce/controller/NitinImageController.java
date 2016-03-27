@@ -15,7 +15,7 @@ import com.mongodb.gridfs.GridFSDBFile;
 @RequestMapping("nitinImage")
 public class NitinImageController {
 	
-	@Autowired
+	/*@Autowired
 	private NitinImageDAO nitinImageDAO;
 	
 	@RequestMapping(value = "/imageAll", method = RequestMethod.GET)
@@ -34,5 +34,5 @@ public class NitinImageController {
 				dbFile.getFilename(),
 				dbFile.getContentType(),
 				dbFile.getMetaData());
-	}
+	}*/
 }

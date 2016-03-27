@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class NitinCustomer {
 	@Id
 	private String id;
+	
 	private String name;
+	
 	public String getId() {
 		return id;
 	}

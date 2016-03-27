@@ -1,21 +1,11 @@
-package com.ecommerce.entity;
+package com.ecommerce.webservices_api.customer.api.view;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.ecommerce.webservices_api.customer.api.view.Customer.CardType;
-
-/**
- * @Document is used to denote the collection in which the data will be persisted. 
- * If it is not mentioned, the data is saved in the collection which has the same name
- *  as the Entity Class Name.
- */
 /**
  * Class representing the customer collection in mongoDb.
  * 
@@ -58,7 +48,6 @@ public class Customer {
 	public Customer() {
 	}
 
-	@PersistenceConstructor
 	public Customer(String customerId, String firstName, String lastName,
 			String address1, String address2, String city, String state,
 			String postalCode, String country, String email, String password,

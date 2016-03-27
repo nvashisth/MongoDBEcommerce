@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,19 +26,14 @@ public class NitinDemoController {
 	}
 	
 	@RequestMapping(value = "/customer/save", method = RequestMethod.POST)
-	public String createCustomer(NitinCustomer customer) {
-		System.out.println("Nitin we got customer from UI = "+customer);
+	public String createCustomer(@RequestBody NitinCustomer customer) {
+		System.out.println("Nitin we got customer from UI = "+customer.getName());
 		if(StringUtils.hasText(customer.getId())) {
 			customerDao.updateCustomer(customer);
 			return "Customer Updated";
 		} else {
 			customerDao.addCustomer(customer);
-			return "Customer created";
+			return "Customer created with name = "+customer.getName();
 		}
 	}
-	/*@RequestMapping(value = "/customer/delete", method = RequestMethod.GET)
-	public View deleteCustomer(@ModelAttribute Customer customer, ModelMap model) {
-		customerDao.deleteCustomer(customer);
-		return new RedirectView("/spring-mongodb/customer");
-	}*/
 }
